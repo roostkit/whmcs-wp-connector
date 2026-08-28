@@ -1,0 +1,98 @@
+name: Build & Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  test-and-release:
+    name: Test, Build & Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: sodium, openssl, json
+          tools: composer:v2
+
+      - name: Install Dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run PHPCS Coding Standards
+        run: composer run phpcs
+
+      - name: Run PHPUnit Test Suite
+        run: composer run test
+
+      - name: Build Installable Plugin Package
+        id: build_package
+        run: |
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG_NAME#v}"
+          
+          echo "Building plugin zip for version ${VERSION}..."
+          
+          # Clean build workspace
+          rm -rf /tmp/build-stage
+          mkdir -p /tmp/build-stage/whmcs-connector
+          
+          # Copy release files into plugin folder
+          cp -R includes /tmp/build-stage/whmcs-connector/
+          cp -R assets /tmp/build-stage/whmcs-connector/
+          cp -R languages /tmp/build-stage/whmcs-connector/
+          cp whmcs-connector.php /tmp/build-stage/whmcs-connector/
+          cp composer.json /tmp/build-stage/whmcs-connector/
+          cp README.md /tmp/build-stage/whmcs-connector/
+          cp CHANGELOG.md /tmp/build-stage/whmcs-connector/
+          cp LICENSE /tmp/build-stage/whmcs-connector/
+          
+          # Generate optimized production classmap autoloader
+          composer dump-autoload --working-dir="/tmp/build-stage/whmcs-connector" --optimize --no-dev --classmap-authoritative --quiet
+          rm -f "/tmp/build-stage/whmcs-connector/composer.json" "/tmp/build-stage/whmcs-connector/composer.lock"
+          
+          # Create zip archive with whmcs-connector as top-level folder
+          mkdir -p dist
+          ZIP_NAME="whmcs-connector-free-${VERSION}.zip"
+          cd /tmp/build-stage
+          zip -r -q "${GITHUB_WORKSPACE}/dist/${ZIP_NAME}" whmcs-connector
+          cd "${GITHUB_WORKSPACE}"
+          
+          echo "zip_path=dist/${ZIP_NAME}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "tag_name=${TAG_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Extract Release Notes from CHANGELOG
+        id: release_notes
+        run: |
+          VERSION="${{ steps.build_package.outputs.version }}"
+          NOTES=""
+          if [ -f CHANGELOG.md ]; then
+            # Extract section for this version if present
+            NOTES=$(awk "/## \[${VERSION}\]/{flag=1; next} /## \[/{flag=0} flag" CHANGELOG.md || true)
+          fi
+          
+          if [ -z "$NOTES" ]; then
+            NOTES="Release ${{ steps.build_package.outputs.tag_name }}"
+          fi
+          
+          # Store multi-line notes in output
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.build_package.outputs.zip_path }}
+          name: WHMCS Connector v${{ steps.build_package.outputs.version }}
+          body: ${{ steps.release_notes.outputs.notes }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true

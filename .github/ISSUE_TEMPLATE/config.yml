@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerabilities
+    url: https://roostkit.site/security
+    about: Please report security issues privately via email or our website.
+  - name: WHMCS Connector Pro Support
+    url: https://roostkit.site/support
+    about: Get priority support and access to commercial Pro features.

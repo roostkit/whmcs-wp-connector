@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "whmcs/client-area",
+	"version": "1.0.0",
+	"title": "WHMCS Client Area",
+	"category": "whmcs-connector",
+	"icon": "admin-users",
+	"description": "Account quick-links navigation grid for WHMCS client area destinations (Invoices, Tickets, Services, Knowledgebase).",
+	"keywords": [ "whmcs", "client", "area", "account", "portal", "dashboard", "menu" ],
+	"textdomain": "whmcs-connector",
+	"attributes": {},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		}
+	},
+	"style": "whmcs-connector-styles",
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 800,
+		"attributes": {}
+	}
+}

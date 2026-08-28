@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "whmcs/login-form",
+	"version": "1.0.0",
+	"title": "WHMCS Login Form",
+	"category": "whmcs-connector",
+	"icon": "lock",
+	"description": "Display an editable login form that authenticates against your WHMCS installation.",
+	"keywords": [ "whmcs", "login", "authentication", "account", "portal", "form" ],
+	"textdomain": "whmcs-connector",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Sign in to your account"
+		},
+		"email_label": {
+			"type": "string",
+			"default": "Email address"
+		},
+		"password_label": {
+			"type": "string",
+			"default": "Password"
+		},
+		"submit_label": {
+			"type": "string",
+			"default": "Sign in"
+		},
+		"redirect": {
+			"type": "string",
+			"default": ""
+		},
+		"class": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		}
+	},
+	"style": "whmcs-connector-styles",
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 600,
+		"attributes": {
+			"title": "Sign in to your account",
+			"email_label": "Email address",
+			"password_label": "Password",
+			"submit_label": "Sign in"
+		}
+	}
+}

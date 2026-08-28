@@ -1,0 +1,1476 @@
+/* WHMCS Connector — Frontend & Gutenberg Editor Styles */
+
+/* Use CSS custom properties for theme inheritance */
+:root {
+	--whmcs-connector-font: inherit;
+	--whmcs-connector-color: inherit;
+	--whmcs-connector-bg: transparent;
+	--whmcs-connector-border: rgba(0, 0, 0, 0.12);
+	--whmcs-connector-radius: 12px;
+	--whmcs-connector-accent: #2563eb;
+	--whmcs-connector-accent-hover: #1d4ed8;
+	--whmcs-connector-accent-subtle: rgba(37, 99, 235, 0.08);
+	--whmcs-connector-error-bg: #fef2f2;
+	--whmcs-connector-error-color: #dc2626;
+	--whmcs-connector-success-bg: #f0fdf4;
+	--whmcs-connector-success-color: #16a34a;
+	--whmcs-connector-card-bg: #ffffff;
+}
+
+/* Shared Buttons */
+.whmcs-connector-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+	background: var(--whmcs-connector-accent);
+	color: #fff !important;
+	text-decoration: none !important;
+	border-radius: var(--whmcs-connector-radius);
+	border: 1px solid transparent;
+	cursor: pointer;
+	font-family: var(--whmcs-connector-font);
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-align: center;
+	box-sizing: border-box;
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.whmcs-connector-btn:hover,
+.whmcs-connector-btn:focus {
+	background: var(--whmcs-connector-accent-hover);
+	color: #fff !important;
+	text-decoration: none !important;
+	box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+	transform: translateY(-1px);
+}
+
+.whmcs-connector-btn.is-style-outline {
+	background: transparent !important;
+	color: var(--whmcs-connector-accent) !important;
+	border-color: var(--whmcs-connector-accent) !important;
+}
+
+.whmcs-connector-btn.is-style-outline:hover {
+	background: var(--whmcs-connector-accent-subtle) !important;
+}
+
+.whmcs-connector-error {
+	padding: 16px;
+	background: var(--whmcs-connector-error-bg);
+	border-left: 4px solid var(--whmcs-connector-error-color);
+	border-radius: var(--whmcs-connector-radius);
+	color: var(--whmcs-connector-error-color);
+}
+
+/* Login Form Block */
+.whmcs-connector-login {
+	max-width: 460px;
+	font-family: var(--whmcs-connector-font);
+	color: var(--whmcs-connector-color);
+	box-sizing: border-box;
+}
+
+.whmcs-connector-login-title {
+	margin: 0 0 16px;
+	font-size: 1.5rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.whmcs-connector-login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.whmcs-connector-field label,
+.whmcs-connector-field-label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.whmcs-connector-field input[type="email"],
+.whmcs-connector-field input[type="password"],
+.whmcs-connector-input-mock {
+	width: 100%;
+	padding: 12px 16px;
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: var(--whmcs-connector-radius);
+	font-size: 15px;
+	font-family: var(--whmcs-connector-font);
+	background: #fff;
+	box-sizing: border-box;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whmcs-connector-field input:focus {
+	outline: none;
+	border-color: var(--whmcs-connector-accent);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.whmcs-connector-input-mock {
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, 0.02);
+}
+
+.whmcs-connector-login-error {
+	padding: 12px 16px;
+	background: var(--whmcs-connector-error-bg);
+	border-left: 4px solid var(--whmcs-connector-error-color);
+	border-radius: var(--whmcs-connector-radius);
+	color: var(--whmcs-connector-error-color);
+	margin-bottom: 16px;
+}
+
+.whmcs-connector-login-success {
+	padding: 16px;
+	background: var(--whmcs-connector-success-bg);
+	border-left: 4px solid var(--whmcs-connector-success-color);
+	border-radius: var(--whmcs-connector-radius);
+	color: var(--whmcs-connector-success-color);
+	margin-bottom: 16px;
+}
+
+.whmcs-connector-login-success .whmcs-connector-btn {
+	margin-top: 8px;
+}
+
+.whmcs-connector-ssl-warning {
+	padding: 16px;
+	background: #fff8e1;
+	border-left: 4px solid #f0b849;
+	border-radius: var(--whmcs-connector-radius);
+	color: #6e4b00;
+}
+
+/* Client Area Block */
+.whmcs-connector-client-area-block {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.whmcs-connector-client-area-heading {
+	margin: 0 0 8px;
+}
+
+/* Legacy Client Area */
+.whmcs-connector-client-area {
+	font-family: var(--whmcs-connector-font);
+	color: var(--whmcs-connector-color);
+}
+
+.whmcs-connector-client-area-links {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+}
+
+.whmcs-connector-client-area-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 16px;
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: var(--whmcs-connector-radius);
+	text-decoration: none;
+	color: var(--whmcs-connector-color);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whmcs-connector-client-area-link:hover {
+	border-color: var(--whmcs-connector-accent);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	text-decoration: none;
+}
+
+/* Free Pricing Card Grid Block & Shortcode */
+.whmcs-connector-pricing-grid {
+	display: grid;
+	gap: 24px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: var(--whmcs-connector-font);
+	color: var(--whmcs-connector-color);
+}
+
+.whmcs-connector-pricing-grid.whmcs-cols-1 {
+	grid-template-columns: 1fr;
+}
+
+.whmcs-connector-pricing-grid.whmcs-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.whmcs-connector-pricing-grid.whmcs-cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.whmcs-connector-pricing-grid.whmcs-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.whmcs-connector-pricing-card {
+	background: var(--whmcs-connector-card-bg);
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: var(--whmcs-connector-radius);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	min-width: 0;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whmcs-connector-pricing-card:hover {
+	border-color: var(--whmcs-connector-accent);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.whmcs-connector-product-title {
+	margin: 0 0 12px;
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.whmcs-connector-product-desc {
+	font-size: 14px;
+	line-height: 1.5;
+	opacity: 0.85;
+	margin-bottom: 16px;
+	flex-grow: 1;
+}
+
+.whmcs-connector-product-pricing {
+	margin-bottom: 20px;
+	padding-top: 12px;
+	border-top: 1px solid var(--whmcs-connector-border);
+}
+
+.whmcs-connector-price-list {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 14px;
+}
+
+.whmcs-connector-price-list li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.whmcs-cycle-label {
+	opacity: 0.8;
+}
+
+.whmcs-cycle-amount {
+	font-weight: 700;
+	color: var(--whmcs-connector-accent);
+}
+
+.whmcs-connector-pricing-action .whmcs-connector-btn {
+	width: 100%;
+}
+
+@media (max-width: 900px) {
+	.whmcs-connector-pricing-grid.whmcs-cols-3,
+	.whmcs-connector-pricing-grid.whmcs-cols-4 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.whmcs-connector-pricing-grid.whmcs-cols-2,
+	.whmcs-connector-pricing-grid.whmcs-cols-3,
+	.whmcs-connector-pricing-grid.whmcs-cols-4 {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Domain Search Block */
+.whmcs-domain-search-block {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.whmcs-domain-search-card {
+	background: var(--whmcs-ds-card-bg, var(--whmcs-connector-card-bg));
+	border: 1px solid var(--whmcs-ds-card-border, var(--whmcs-connector-border));
+	border-radius: var(--whmcs-ds-card-radius, 16px);
+	padding: var(--whmcs-ds-card-padding, 36px 32px);
+	box-shadow: var(--whmcs-ds-card-shadow, 0 4px 20px rgba(0, 0, 0, 0.04));
+}
+
+.whmcs-domain-search-heading {
+	margin: 0 0 8px;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.whmcs-domain-search-subheading {
+	margin: 0 0 24px;
+	font-size: 15px;
+	opacity: 0.8;
+}
+
+.whmcs-domain-search-input-wrap {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.whmcs-domain-search-input {
+	flex: 1;
+	padding: var(--whmcs-ds-input-padding, 14px 18px);
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: var(--whmcs-ds-input-radius, var(--whmcs-connector-radius));
+	background: var(--whmcs-ds-input-bg, #fff);
+	font-size: 16px;
+	font-family: var(--whmcs-connector-font);
+	box-sizing: border-box;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.whmcs-domain-search-input:focus {
+	outline: none;
+	border-color: var(--whmcs-connector-accent);
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.whmcs-domain-search-submit,
+.whmcs-domain-search-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	white-space: nowrap;
+	padding: var(--whmcs-ds-btn-padding, 14px 28px);
+	border-radius: var(--whmcs-ds-btn-radius, var(--whmcs-connector-radius)) !important;
+}
+
+.whmcs-btn-spinner {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-top-color: #fff;
+	border-radius: 50%;
+	animation: whmcs-spin 0.6s linear infinite;
+}
+
+.whmcs-domain-search-tlds {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 16px;
+}
+
+.whmcs-tld-badge {
+	display: inline-block;
+	padding: 6px 14px;
+	background: var(--whmcs-ds-badge-bg, var(--whmcs-connector-accent-subtle));
+	color: var(--whmcs-ds-badge-color, var(--whmcs-connector-accent));
+	font-size: 13px;
+	font-weight: 600;
+	border-radius: var(--whmcs-ds-badge-radius, 9999px);
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	font-family: inherit;
+}
+
+.whmcs-tld-badge:hover {
+	background: var(--whmcs-connector-accent);
+	color: #fff;
+	transform: translateY(-1px);
+	box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+.whmcs-domain-results {
+	margin-top: 24px;
+	animation: whmcs-fade-in 0.25s ease-out;
+}
+
+@keyframes whmcs-fade-in {
+	from { opacity: 0; transform: translateY(6px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.whmcs-domain-checking {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 15px;
+	color: var(--whmcs-connector-accent);
+	padding: 16px;
+	background: var(--whmcs-connector-accent-subtle);
+	border-radius: var(--whmcs-connector-radius);
+}
+
+.whmcs-domain-error {
+	padding: 14px 18px;
+	background: var(--whmcs-connector-error-bg);
+	color: var(--whmcs-connector-error-color);
+	border-radius: var(--whmcs-connector-radius);
+	font-size: 14px;
+}
+
+.whmcs-domain-result-card {
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: 14px;
+	background: #fff;
+	overflow: hidden;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.whmcs-domain-result-card.is-available {
+	border-color: rgba(22, 163, 74, 0.3);
+}
+
+.whmcs-domain-result-card.is-unavailable {
+	border-color: rgba(220, 38, 38, 0.2);
+}
+
+.whmcs-result-main-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 24px;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.whmcs-domain-result-card.is-available .whmcs-result-main-row {
+	background: linear-gradient(to right, rgba(240, 253, 244, 0.7), transparent);
+}
+
+.whmcs-domain-result-card.is-unavailable .whmcs-result-main-row {
+	background: linear-gradient(to right, rgba(254, 242, 242, 0.7), transparent);
+}
+
+.whmcs-result-domain-info {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.whmcs-result-domain-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.whmcs-status-badge {
+	display: inline-block;
+	padding: 4px 10px;
+	font-size: 12px;
+	font-weight: 700;
+	border-radius: 9999px;
+}
+
+.whmcs-status-badge.is-available {
+	background: #dcfce7;
+	color: #15803d;
+}
+
+.whmcs-status-badge.is-unavailable {
+	background: #fee2e2;
+	color: #b91c1c;
+}
+
+.whmcs-result-action {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.whmcs-result-price {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--whmcs-connector-accent);
+}
+
+.whmcs-btn-transfer {
+	background: transparent !important;
+	color: var(--whmcs-connector-accent) !important;
+	border: 1px solid var(--whmcs-connector-accent) !important;
+}
+
+.whmcs-btn-transfer:hover {
+	background: var(--whmcs-connector-accent-subtle) !important;
+}
+
+/* Suggestions List */
+.whmcs-suggestions-container {
+	border-top: 1px solid var(--whmcs-connector-border);
+	padding: 18px 24px;
+	background: #fafafa;
+}
+
+.whmcs-suggestions-title {
+	margin: 0 0 12px;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	opacity: 0.75;
+}
+
+.whmcs-suggestions-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.whmcs-suggestion-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 14px;
+	background: #fff;
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: 8px;
+	gap: 12px;
+	transition: border-color 0.15s ease;
+}
+
+.whmcs-suggestion-row:hover {
+	border-color: var(--whmcs-connector-accent);
+}
+
+.whmcs-suggestion-domain {
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.whmcs-suggestion-action {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.whmcs-suggestion-price {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--whmcs-connector-accent);
+}
+
+.whmcs-status-tag {
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 8px;
+	border-radius: 9999px;
+}
+
+.whmcs-status-tag.is-available {
+	background: #dcfce7;
+	color: #166534;
+}
+
+.whmcs-status-tag.is-unavailable {
+	background: #fee2e2;
+	color: #991b1b;
+}
+
+.whmcs-btn-sm {
+	padding: 6px 14px !important;
+	font-size: 13px !important;
+	border-radius: 6px !important;
+}
+
+.whmcs-spinner {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border: 2px solid rgba(37, 99, 235, 0.2);
+	border-top-color: var(--whmcs-connector-accent);
+	border-radius: 50%;
+	animation: whmcs-spin 0.6s linear infinite;
+}
+
+@keyframes whmcs-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   PRO BLOCK 1: Modern SaaS Pricing Table
+   ========================================================================== */
+.whmcs-saas-pricing-wrapper {
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	font-family: var(--whmcs-connector-font);
+}
+
+.whmcs-saas-hero-header {
+	background: #2b59ff;
+	background: radial-gradient(circle at top right, #3867ff, #2048e8);
+	padding: 44px 20px 84px;
+	border-radius: 20px 20px 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box !important;
+	width: 100% !important;
+}
+
+.whmcs-saas-capsule-toggle {
+	background: #1938b8;
+	padding: 4px;
+	border-radius: 9999px;
+	display: inline-flex;
+	gap: 4px;
+	box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.whmcs-saas-toggle-btn {
+	padding: 8px 24px;
+	border-radius: 9999px;
+	border: none;
+	background: transparent;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-family: inherit;
+}
+
+.whmcs-saas-toggle-btn.is-active {
+	background: #ffffff;
+	color: #0f172a;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.whmcs-saas-cards-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 24px;
+	margin-top: -50px;
+	padding: 0 16px 20px;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: stretch;
+	box-sizing: border-box !important;
+	width: 100% !important;
+}
+
+.whmcs-saas-card {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 24px;
+	padding: 36px 28px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-sizing: border-box !important;
+	min-width: 0 !important;
+	overflow: hidden;
+}
+
+.whmcs-saas-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+}
+
+.whmcs-saas-title-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.whmcs-saas-plan-title {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 800;
+	color: #0f172a;
+}
+
+.whmcs-saas-popular-badge {
+	background: #f1f5f9;
+	color: #64748b;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 3px 8px;
+	border-radius: 4px;
+}
+
+.whmcs-saas-plan-desc {
+	margin: 0 0 24px;
+	font-size: 13px;
+	color: #64748b;
+	line-height: 1.5;
+	min-height: 40px;
+}
+
+.whmcs-saas-price-row {
+	display: flex;
+	align-items: baseline;
+	gap: 4px;
+	margin-bottom: 24px;
+}
+
+.whmcs-saas-price-num {
+	font-size: 44px;
+	font-weight: 900;
+	color: #0f172a;
+	letter-spacing: -0.03em;
+}
+
+.whmcs-saas-price-period {
+	font-size: 14px;
+	font-weight: 600;
+	color: #64748b;
+}
+
+.whmcs-saas-savings-row {
+	margin-top: -16px;
+	margin-bottom: 20px;
+}
+
+.whmcs-saas-discount-badge {
+	display: inline-block;
+	background: #dcfce7;
+	color: #15803d;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	padding: 3px 8px;
+	border-radius: 6px;
+	text-transform: uppercase;
+}
+
+.whmcs-saas-card.is-popular-card {
+	border: 2px solid #2b59ff;
+	box-shadow: 0 16px 40px rgba(43, 89, 255, 0.12);
+}
+
+/* Strict button isolation against WP theme styles */
+.whmcs-saas-card .whmcs-saas-buy-btn,
+a.whmcs-saas-buy-btn.wp-element-button {
+	width: 100% !important;
+	max-width: 100% !important;
+	min-width: 0 !important;
+	box-sizing: border-box !important;
+	margin: 0 !important;
+	padding: 14px 20px !important;
+	background: #2b59ff !important;
+	background-color: #2b59ff !important;
+	color: #ffffff !important;
+	border: none !important;
+	border-radius: 10px !important;
+	font-size: 15px !important;
+	font-weight: 700 !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	cursor: pointer !important;
+	transition: all 0.2s ease !important;
+	font-family: inherit !important;
+	line-height: 1.3 !important;
+}
+
+.whmcs-saas-card .whmcs-saas-buy-btn:hover,
+a.whmcs-saas-buy-btn.wp-element-button:hover {
+	background: #1a44e0 !important;
+	background-color: #1a44e0 !important;
+	color: #ffffff !important;
+	box-shadow: 0 6px 20px rgba(43, 89, 255, 0.35) !important;
+	transform: translateY(-1px) !important;
+}
+
+.whmcs-saas-feature-list {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 28px 0 0 !important;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.whmcs-saas-feature-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.whmcs-saas-feature-list li.is-enabled {
+	color: #1e293b;
+}
+
+.whmcs-saas-feature-list li.is-disabled {
+	color: #94a3b8;
+}
+
+.whmcs-feat-icon {
+	font-weight: 800;
+	font-size: 13px;
+}
+
+.is-enabled .whmcs-feat-icon {
+	color: #0f172a;
+}
+
+.is-disabled .whmcs-feat-icon {
+	color: #cbd5e1;
+}
+
+/* ==========================================================================
+   PRO BLOCK 2: UltaHost-Inspired Featured Hosting Grid
+   ========================================================================== */
+.whmcs-ultahost-wrapper {
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	font-family: var(--whmcs-connector-font);
+}
+
+.whmcs-ultahost-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 24px;
+	max-width: 1200px;
+	margin: 0 auto;
+	align-items: stretch;
+	box-sizing: border-box !important;
+	width: 100% !important;
+}
+
+.whmcs-ultahost-card {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 20px;
+	padding: 36px 28px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-sizing: border-box !important;
+	min-width: 0 !important;
+	overflow: hidden;
+}
+
+.whmcs-ultahost-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.whmcs-ultahost-card.is-popular {
+	border: 2px solid #2b59ff;
+	box-shadow: 0 12px 36px rgba(43, 89, 255, 0.12);
+	padding-top: 56px;
+}
+
+.whmcs-ultahost-ribbon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	background: #2b59ff;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+}
+
+.whmcs-ultahost-name {
+	margin: 0 0 6px;
+	font-size: 20px;
+	font-weight: 800;
+	color: #0f172a;
+}
+
+.whmcs-ultahost-tagline {
+	margin: 0 0 18px;
+	font-size: 13px;
+	color: #64748b;
+}
+
+.whmcs-ultahost-price-box {
+	display: flex;
+	align-items: baseline;
+	gap: 2px;
+	margin-bottom: 4px;
+}
+
+.whmcs-ultahost-price {
+	font-size: 34px;
+	font-weight: 900;
+	color: #0f172a;
+	letter-spacing: -0.02em;
+}
+
+.whmcs-ultahost-per {
+	font-size: 14px;
+	font-weight: 600;
+	color: #64748b;
+}
+
+.whmcs-ultahost-discount-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 20px;
+}
+
+.whmcs-ultahost-strike {
+	font-size: 13px;
+	text-decoration: line-through;
+	color: #94a3b8;
+}
+
+.whmcs-ultahost-discount-pill {
+	background: #fef3c7;
+	color: #b45309;
+	font-size: 11px;
+	font-weight: 800;
+	padding: 2px 8px;
+	border-radius: 6px;
+}
+
+/* Strict button isolation against WP theme styles */
+.whmcs-ultahost-card .whmcs-ultahost-order-btn,
+a.whmcs-ultahost-order-btn.wp-element-button {
+	width: 100% !important;
+	max-width: 100% !important;
+	min-width: 0 !important;
+	box-sizing: border-box !important;
+	margin: 0 !important;
+	padding: 12px 20px !important;
+	font-size: 13px !important;
+	font-weight: 800 !important;
+	letter-spacing: 0.06em !important;
+	border-radius: 9999px !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	cursor: pointer !important;
+	transition: all 0.2s ease !important;
+	font-family: inherit !important;
+	line-height: 1.3 !important;
+}
+
+.whmcs-ultahost-card .whmcs-ultahost-order-btn.is-outline,
+a.whmcs-ultahost-order-btn.wp-element-button.is-outline {
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 1.5px solid #0f172a !important;
+	color: #0f172a !important;
+}
+
+.whmcs-ultahost-card .whmcs-ultahost-order-btn.is-outline:hover,
+a.whmcs-ultahost-order-btn.wp-element-button.is-outline:hover {
+	background: #0f172a !important;
+	background-color: #0f172a !important;
+	color: #ffffff !important;
+}
+
+.whmcs-ultahost-card .whmcs-ultahost-order-btn.is-solid,
+a.whmcs-ultahost-order-btn.wp-element-button.is-solid {
+	background: #2b59ff !important;
+	background-color: #2b59ff !important;
+	border: 1.5px solid #2b59ff !important;
+	color: #ffffff !important;
+	box-shadow: 0 4px 14px rgba(43, 89, 255, 0.3) !important;
+}
+
+.whmcs-ultahost-card .whmcs-ultahost-order-btn.is-solid:hover,
+a.whmcs-ultahost-order-btn.wp-element-button.is-solid:hover {
+	background: #1a44e0 !important;
+	background-color: #1a44e0 !important;
+	border-color: #1a44e0 !important;
+	color: #ffffff !important;
+}
+
+.whmcs-ultahost-features-title {
+	margin: 22px 0 14px;
+	font-size: 13px;
+	font-weight: 800;
+	color: #0f172a;
+}
+
+.whmcs-ultahost-feature-list {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.whmcs-ultahost-feature-list li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	color: #334155;
+	line-height: 1.4;
+}
+
+.whmcs-ultahost-check {
+	color: #2b59ff;
+	font-size: 13px;
+	font-weight: 900;
+}
+
+/* ==========================================================================
+   PRO BLOCK 3: VPS Resource Slider (DigitalOcean/Linode style)
+   ========================================================================== */
+.whmcs-vps-slider-block {
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+.whmcs-vps-card {
+	background: var(--whmcs-connector-card-bg);
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+	box-sizing: border-box !important;
+	width: 100% !important;
+}
+
+.whmcs-vps-heading {
+	margin: 0 0 8px;
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+
+.whmcs-vps-subheading {
+	margin: 0 0 32px;
+	font-size: 15px;
+	opacity: 0.8;
+}
+
+.whmcs-vps-layout {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	gap: 40px;
+	align-items: center;
+	box-sizing: border-box !important;
+}
+
+.whmcs-vps-sliders-col {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+	min-width: 0 !important;
+}
+
+.whmcs-vps-slider-box {
+	background: #fafafa;
+	border: 1px solid var(--whmcs-connector-border);
+	border-radius: 12px;
+	padding: 20px;
+	box-sizing: border-box !important;
+}
+
+.whmcs-vps-slider-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.whmcs-vps-slider-label {
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.whmcs-vps-pill {
+	font-weight: 700;
+	font-size: 14px;
+	background: var(--whmcs-connector-accent-subtle);
+	color: var(--whmcs-connector-accent);
+	padding: 4px 12px;
+	border-radius: 9999px;
+}
+
+.whmcs-range-input {
+	width: 100%;
+	cursor: pointer;
+	accent-color: var(--whmcs-connector-accent);
+}
+
+.whmcs-vps-summary-sidebar {
+	background: var(--whmcs-connector-accent-subtle);
+	border: 1px solid rgba(37, 99, 235, 0.18);
+	border-radius: 16px;
+	padding: 32px 28px;
+	text-align: center;
+	box-sizing: border-box !important;
+	min-width: 0 !important;
+}
+
+.whmcs-vps-summary-badge {
+	font-size: 12px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	opacity: 0.75;
+	margin-bottom: 8px;
+}
+
+.whmcs-vps-price-display {
+	font-size: 40px;
+	font-weight: 800;
+	color: var(--whmcs-connector-accent);
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	gap: 2px;
+}
+
+.whmcs-vps-price-display .whmcs-vps-cycle {
+	font-size: 15px;
+	font-weight: 500;
+	opacity: 0.7;
+	color: var(--whmcs-connector-color);
+}
+
+.whmcs-vps-specs {
+	text-align: left;
+	margin-bottom: 24px;
+	font-size: 14px;
+	line-height: 1.8;
+	opacity: 0.85;
+}
+
+.whmcs-vps-card .whmcs-vps-deploy-btn,
+a.whmcs-vps-deploy-btn.wp-element-button {
+	width: 100% !important;
+	max-width: 100% !important;
+	min-width: 0 !important;
+	box-sizing: border-box !important;
+	margin: 0 !important;
+	padding: 14px 20px !important;
+	background: #0f172a !important;
+	background-color: #0f172a !important;
+	color: #ffffff !important;
+	border-radius: 10px !important;
+	font-weight: 700 !important;
+	text-decoration: none !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	transition: all 0.2s ease !important;
+}
+
+.whmcs-vps-card .whmcs-vps-deploy-btn:hover,
+a.whmcs-vps-deploy-btn.wp-element-button:hover {
+	background: #1e293b !important;
+	background-color: #1e293b !important;
+	color: #ffffff !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+	transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   PRO GATING & UPSELL SYSTEM
+   ========================================================================== */
+.whmcs-pro-upsell-card {
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 16px;
+	text-align: center;
+}
+
+.whmcs-pro-badge {
+	display: inline-block;
+	background: #3b82f6;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	padding: 3px 8px;
+	border-radius: 4px;
+	margin-bottom: 8px;
+}
+
+.whmcs-pro-desc {
+	font-size: 13px;
+	line-height: 1.5;
+	color: #475569;
+	margin-bottom: 12px !important;
+}
+
+.whmcs-pro-upgrade-btn {
+	width: 100%;
+	justify-content: center;
+}
+
+.whmcs-editor-pro-banner {
+	background: #eff6ff;
+	border-left: 4px solid #3b82f6;
+	padding: 12px 16px;
+	border-radius: 6px;
+	font-size: 13px;
+	color: #1e3a8a;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.whmcs-pro-frontend-banner {
+	background: #f8fafc;
+	border: 1px dashed #94a3b8;
+	padding: 16px 20px;
+	border-radius: 8px;
+	font-size: 14px;
+	color: #334155;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 16px 0;
+}
+
+/* Pro Live Demo Alert Banner */
+.whmcs-pro-demo-alert {
+	background: #f0fdf4;
+	background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+	border: 1px solid #bfdbfe;
+	border-radius: 12px;
+	padding: 16px 20px;
+	margin: 0 auto 24px;
+	max-width: 1200px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+	box-sizing: border-box;
+}
+
+.whmcs-pro-demo-left {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex: 1;
+	flex-wrap: wrap;
+}
+
+.whmcs-pro-demo-badge {
+	background: #2563eb;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	border-radius: 6px;
+	white-space: nowrap;
+	box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+.whmcs-pro-demo-text {
+	font-size: 14px;
+	color: #1e293b;
+	line-height: 1.4;
+}
+
+.whmcs-pro-demo-btn {
+	background: #2563eb;
+	color: #ffffff !important;
+	text-decoration: none !important;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 700;
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+	transition: all 0.2s ease;
+}
+
+.whmcs-pro-demo-btn:hover {
+	background: #1d4ed8;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* Pro Shortcode Notice (Freemium Upsell) */
+.whmcs-pro-shortcode-notice {
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 8px !important;
+	padding: 4px 12px 4px 8px !important;
+	background: #eff6ff !important;
+	background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%) !important;
+	border: 1px solid #bfdbfe !important;
+	border-radius: 8px !important;
+	font-family: var(--whmcs-connector-font) !important;
+	font-size: 13px !important;
+	line-height: 1.4 !important;
+	color: #1e293b !important;
+	box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08) !important;
+	vertical-align: middle !important;
+	box-sizing: border-box !important;
+	text-decoration: none !important;
+}
+
+.whmcs-pro-shortcode-notice code {
+	background: #dbeafe !important;
+	color: #1d4ed8 !important;
+	padding: 1px 5px !important;
+	border-radius: 4px !important;
+	font-size: 12px !important;
+	font-weight: 600 !important;
+	font-family: monospace !important;
+}
+
+.whmcs-pro-shortcode-badge {
+	background: #2563eb !important;
+	color: #ffffff !important;
+	font-size: 10px !important;
+	font-weight: 800 !important;
+	letter-spacing: 0.06em !important;
+	text-transform: uppercase !important;
+	padding: 2px 6px !important;
+	border-radius: 4px !important;
+	line-height: 1.2 !important;
+}
+
+.whmcs-pro-shortcode-text {
+	font-size: 12px !important;
+	color: #334155 !important;
+}
+
+.whmcs-pro-shortcode-link {
+	color: #2563eb !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	text-decoration: underline !important;
+	text-underline-offset: 2px !important;
+	transition: color 0.15s ease !important;
+	white-space: nowrap !important;
+}
+
+.whmcs-pro-shortcode-link:hover {
+	color: #1d4ed8 !important;
+	text-decoration: underline !important;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+	.whmcs-saas-cards-grid,
+	.whmcs-ultahost-grid {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 20px;
+	}
+
+	.whmcs-vps-layout {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+}
+
+@media (max-width: 768px) {
+	.whmcs-saas-hero-header {
+		padding: 32px 16px 64px;
+	}
+
+	.whmcs-saas-cards-grid {
+		grid-template-columns: 1fr;
+		margin-top: -36px;
+		padding: 0 12px 16px;
+	}
+
+	.whmcs-ultahost-grid {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+
+	.whmcs-vps-card {
+		padding: 24px 20px;
+	}
+
+	.whmcs-vps-heading {
+		font-size: 1.4rem;
+	}
+
+	.whmcs-domain-search-card {
+		padding: 24px 18px;
+	}
+
+	.whmcs-pro-demo-alert {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.whmcs-pro-demo-btn {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.whmcs-domain-search-input-wrap {
+		flex-direction: column;
+	}
+
+	.whmcs-domain-search-submit,
+	.whmcs-domain-search-btn {
+		width: 100%;
+	}
+
+	.whmcs-connector-client-area-links {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.whmcs-saas-card,
+	.whmcs-ultahost-card {
+		padding: 28px 20px;
+	}
+
+	.whmcs-saas-price-num,
+	.whmcs-ultahost-price {
+		font-size: 32px;
+	}
+
+	.whmcs-vps-price-display {
+		font-size: 32px;
+	}
+
+	.whmcs-saas-toggle-btn {
+		padding: 6px 16px;
+		font-size: 11px;
+	}
+}
+

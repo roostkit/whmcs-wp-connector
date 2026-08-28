@@ -1,0 +1,394 @@
+/* WHMCS Connector — Admin Styles */
+
+.whmcs-connector-settings .nav-tab-wrapper {
+	margin-bottom: 20px;
+}
+
+.whmcs-connector-tab-content {
+	max-width: 800px;
+}
+
+/* Password toggle */
+.whmcs-connector-password-field {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.whmcs-connector-toggle-password {
+	padding: 3px 8px !important;
+	min-height: 30px;
+}
+
+/* Saved indicator */
+.whmcs-connector-saved-indicator {
+	color: #00a32a;
+	font-weight: bold;
+	margin-left: 8px;
+}
+
+/* Test connection result */
+.whmcs-connector-test-result {
+	margin-top: 10px;
+	padding: 0;
+}
+
+.whmcs-connector-test-result.success {
+	color: #00a32a;
+	border-left: 4px solid #00a32a;
+	padding: 8px 12px;
+	background: #f0f6f0;
+}
+
+.whmcs-connector-test-result.error {
+	color: #d63638;
+	border-left: 4px solid #d63638;
+	padding: 8px 12px;
+	background: #fcf0f1;
+}
+
+.whmcs-connector-test-result.loading {
+	color: #666;
+	padding: 8px 0;
+}
+
+/* Cache range slider */
+.whmcs-connector-range {
+	vertical-align: middle;
+	width: 300px;
+}
+
+/* API Log table */
+.whmcs-connector-settings .widefat code {
+	font-size: 12px;
+}
+
+/* Edition badges */
+.whmcs-connector-badge-pro {
+	display: inline-block;
+	background: #1d2327;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.whmcs-connector-badge-free {
+	display: inline-block;
+	background: #72aee6;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+/* Pro active confirmation card */
+.whmcs-connector-pro-active-card {
+	margin-top: 20px;
+	padding: 20px 24px;
+	background: #f0f6f0;
+	border: 1px solid #8ec9a4;
+	border-left: 4px solid #00a32a;
+	border-radius: 4px;
+	max-width: 680px;
+}
+
+.whmcs-connector-pro-active-card h3 {
+	margin-top: 0;
+	color: #00a32a;
+}
+
+/* Pro feature checklist (used in About tab Pro active view) */
+.whmcs-connector-feature-checklist {
+	margin: 12px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.whmcs-connector-feature-checklist li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 8px 0;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.whmcs-connector-feature-checklist li:last-child {
+	border-bottom: none;
+}
+
+.whmcs-connector-feature-checklist li > div {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+/* Free vs Pro comparison table */
+.whmcs-connector-comparison-section {
+	margin-top: 20px;
+	max-width: 760px;
+}
+
+.whmcs-connector-comparison-section h3 {
+	margin-bottom: 8px;
+}
+
+.whmcs-connector-comparison-wrapper {
+	overflow-x: auto;
+}
+
+.whmcs-connector-comparison-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.whmcs-connector-comparison-table thead th {
+	background: #f6f7f7;
+	padding: 10px 14px;
+	text-align: left;
+	font-weight: 600;
+	border-bottom: 2px solid #dcdcde;
+}
+
+.whmcs-connector-comparison-table .column-tier {
+	width: 110px;
+	text-align: center;
+}
+
+.whmcs-connector-comparison-table .column-pro {
+	background: #f0f6f0;
+}
+
+.whmcs-connector-comparison-table thead .column-pro {
+	background: #e6f3eb;
+}
+
+.whmcs-connector-comparison-table td {
+	padding: 8px 14px;
+	vertical-align: middle;
+}
+
+.whmcs-connector-comparison-table td.column-feature strong {
+	display: block;
+}
+
+.whmcs-connector-comparison-table td.column-feature .description {
+	display: block;
+	color: #646970;
+	font-size: 12px;
+}
+
+.whmcs-connector-comparison-table td.column-tier {
+	text-align: center;
+}
+
+.whmcs-icon-check {
+	color: #00a32a;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.whmcs-icon-dash {
+	color: #aaa;
+	font-size: 18px;
+}
+
+/* Pro upsell card */
+.whmcs-connector-upsell {
+	margin-top: 24px;
+	padding: 20px 24px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	max-width: 680px;
+}
+
+.whmcs-connector-upsell h3 {
+	margin-top: 0;
+}
+
+.whmcs-connector-price del {
+	color: #999;
+	margin-right: 8px;
+}
+
+.whmcs-connector-price-current {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+/* ─── Welcome Screen ─────────────────────────────────────────── */
+.whmcs-connector-welcome-wrap {
+	max-width: 860px;
+	padding-bottom: 40px;
+}
+
+.whmcs-connector-welcome-hero {
+	margin: 24px 0 32px;
+	padding: 32px 36px;
+	background: #1d2327;
+	color: #fff;
+	border-radius: 6px;
+}
+
+.whmcs-connector-badge-pill {
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.15);
+	color: #c3c4c7;
+	font-size: 11px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	padding: 3px 10px;
+	border-radius: 20px;
+	margin-bottom: 14px;
+	text-transform: uppercase;
+}
+
+.whmcs-connector-welcome-hero h1 {
+	color: #fff;
+	font-size: 26px;
+	font-weight: 600;
+	margin: 0 0 10px;
+}
+
+.whmcs-connector-welcome-intro {
+	color: #c3c4c7;
+	font-size: 14px;
+	margin: 0;
+}
+
+.whmcs-connector-welcome-steps {
+	margin-bottom: 36px;
+}
+
+.whmcs-connector-welcome-steps h2 {
+	margin-bottom: 16px;
+}
+
+.whmcs-connector-steps-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+@media (max-width: 640px) {
+	.whmcs-connector-steps-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.whmcs-connector-step-card {
+	display: flex;
+	gap: 14px;
+	padding: 20px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.whmcs-step-num {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	background: #2271b1;
+	color: #fff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.whmcs-step-body h3 {
+	margin: 0 0 6px;
+	font-size: 14px;
+}
+
+.whmcs-step-body p {
+	color: #646970;
+	font-size: 13px;
+	margin: 0 0 12px;
+}
+
+.whmcs-connector-welcome-comparison {
+	margin-bottom: 32px;
+}
+
+.whmcs-connector-welcome-comparison h2 {
+	margin-bottom: 8px;
+}
+
+.whmcs-connector-welcome-upsell-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	margin-top: 20px;
+	padding: 20px 24px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.whmcs-connector-welcome-upsell-bar h3 {
+	margin: 0 0 4px;
+}
+
+.whmcs-connector-welcome-upsell-bar p {
+	color: #646970;
+	font-size: 13px;
+	margin: 0;
+}
+
+.whmcs-welcome-cta-box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.whmcs-connector-welcome-footer {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding-top: 20px;
+	border-top: 1px solid #dcdcde;
+}
+
+.whmcs-connector-skip-link {
+	color: #646970;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.whmcs-connector-skip-link:hover {
+	color: #1d2327;
+	text-decoration: underline;
+}
+
+/* Getting Started admin notice */
+.whmcs-connector-getting-started-notice {
+	border-left-color: #2271b1;
+}
+
+.whmcs-connector-getting-started-notice .button-link {
+	color: #2271b1;
+	cursor: pointer;
+	text-decoration: underline;
+	background: none;
+	border: none;
+	padding: 0;
+	font-size: 13px;
+}
+
+.whmcs-connector-getting-started-notice .button-link:hover {
+	color: #135e96;
+}
